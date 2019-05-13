@@ -1,7 +1,7 @@
 {
-  "name": "theathical-players",
-  "version": "1.0.0",
-  "description": "Refactoring Example",
+  "name": "generador_de_boletas",
+  "version": "1.2.0",
+  "description": "Generador de boletas de pago",
   "main": "index.js",
   "scripts": {
     "coverage": "nyc mocha --require babel-register",

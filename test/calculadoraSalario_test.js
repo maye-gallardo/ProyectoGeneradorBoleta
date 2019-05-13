@@ -1,8 +1,8 @@
 var expect = require('chai').expect
 
-import CalculadoraPorFijo from '../calculadoraSalario/calculadoraPorFijo';
-import CalculadoraPorHora from '../calculadoraSalario/calculadoraPorHora';
-import CalculadoraPorComision from '../calculadoraSalario/calculadoraPorComision';
+import CalculadoraPorFijo from '../calculadoras/calculadoraSalario/calculadoraPorFijo';
+import CalculadoraPorHora from '../calculadoras/calculadoraSalario/calculadoraPorHora';
+import CalculadoraPorComision from '../calculadoras/calculadoraSalario/calculadoraPorComision';
 import TarjetaHora from '../tarjetas/tarjetaHora';
 import TarjetaAsistencia from '../tarjetas/tarjetaAsistencia';
 import TarjetaVenta from '../tarjetas/tarjetaVenta';
