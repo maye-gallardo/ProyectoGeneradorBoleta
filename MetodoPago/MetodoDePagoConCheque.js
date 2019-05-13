@@ -8,12 +8,12 @@ class MetodoDePagoConCheque{
     }
 
     obtenerPago(){
-        let cheque = `Cheque DE PAGO
+        let cheque = `CHEQUE DE PAGO
                         Empleado: ${this.obtenerReceptor()}
                         Monto: ${this.obtenerMonto()}
                         Tipo de moneda: Bs
                         Lugar de pago: ${this.obtenerlugarDeEmision()}
-                        Fecha de pago: ${this.fechaDeEmision().toString()}`;
+                        Fecha de pago: ${this.obtenerFechaDeEmision().toString()}`;
         return cheque;            
     }
 
@@ -22,7 +22,8 @@ class MetodoDePagoConCheque{
     }
 
     obtenerFechaDeEmision(){
-        return this.fechaPagoConCheque.getDay();
+        let fecha = new Date();
+        return fecha.getDate();
     }
 
     obtenerlugarDeEmision(){
@@ -30,8 +31,9 @@ class MetodoDePagoConCheque{
     }
 
     obtenerMonto(){
-        return this.monto.calcularSalario();
+        return this.receptor.obtenerSalario();
     }
 
 }
+module.exports=MetodoDePagoConCheque;
 

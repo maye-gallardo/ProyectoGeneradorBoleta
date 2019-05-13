@@ -6,11 +6,11 @@ class MetodoDePagoConDeposito{
     }
 
     obtenerPago(){
-        let cheque = `Cheque DE PAGO
+        let deposito = `FACTURA DE DEPOSITO
                         Banco: ${this.obtenerNombreDelBanco()}
                         Cuenta: ${this.obtenerNumeroDeCuenta()}
                         Monto: ${this.obtenerMontoADepositar()}`;
-        return cheque;            
+        return deposito;            
     }
 
     obtenerNombreDelBanco(){
@@ -22,6 +22,6 @@ class MetodoDePagoConDeposito{
     }
 
     obtenerMontoADepositar(){
-        return this.montoDepositado;
+        return this.montoDepositado.calcularSalario();
     }
 }
