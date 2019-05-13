@@ -1,14 +1,14 @@
 var expect = require('chai').expect;
 import Empleado from '../empleado/empleado.js';
-import CalculadoraPorFijo from '../calculadoraSalario/calculadoraPorFijo';
-import CalculadoraPorHora from '../calculadoraSalario/calculadoraPorHora';
-import CalculadoraPorComision from '../calculadoraSalario/calculadoraPorComision';
+import CalculadoraPorFijo from '../calculadoras/calculadoraSalario/calculadoraPorFijo';
+import CalculadoraPorHora from '../calculadoras/calculadoraSalario/calculadoraPorHora';
+import CalculadoraPorComision from '../calculadoras/calculadoraSalario/calculadoraPorComision';
 import TarjetaHora from '../tarjetas/tarjetaHora';
 import TarjetaVenta from '../tarjetas/tarjetaVenta';
 import TarjetaAsistencia from '../tarjetas/tarjetaAsistencia';
-import CalculadoraDeFechaDePagoPorHora from '../calculadoraFechaDePago/calculadoraDeFechaDePagoPorHora';
-import CalculadoraDeFechaDePagoFijo from '../calculadoraFechaDePago/calculadoraDeFechaDePagoFijo';
-import CalculadoraDeFechaDePagoPorComision from '../calculadoraFechaDePago/CalculadoraDeFechaDePagoPorComision';
+import CalculadoraDeFechaDePagoPorHora from '../calculadoras/calculadoraFechaDePago/calculadoraDeFechaDePagoPorHora';
+import CalculadoraDeFechaDePagoFijo from '../calculadoras/calculadoraFechaDePago/calculadoraDeFechaDePagoFijo';
+import CalculadoraDeFechaDePagoPorComision from '../calculadoras/calculadoraFechaDePago/CalculadoraDeFechaDePagoPorComision';
 import MetodoDePagoConCheque from '../MetodoPago/MetodoDePagoConCheque.js';
 
 describe('Metodo de pago', function(){
@@ -22,12 +22,12 @@ describe('Metodo de pago', function(){
         let fechaDePago = new Date();
         fechaDePago.toString();
         let boletaEsperada=`CHEQUE DE PAGO
-                                Empleado: Erick
-                                Monto: 78
-                                Tipo de moneda: Bs
-                                Lugar de pago: cochabamba
-                                Fecha de pago: ${fechaDePago.getDate()}`;
+                      Empleado: Erick
+                      Monto: 78
+                      Tipo de moneda: Bs
+                      Lugar de pago: cochabamba
+                      Fecha de pago: ${fechaDePago.getDate()}`;
         let boletaResultante=chequeDePago.obtenerPago();
-        expect(boletaEsperada).eql(boletaResultante);
+        expect(boletaResultante).equal(boletaEsperada);
     });
 });

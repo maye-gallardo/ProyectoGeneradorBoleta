@@ -9,11 +9,11 @@ class MetodoDePagoConCheque{
 
     obtenerPago(){
         let cheque = `CHEQUE DE PAGO
-                        Empleado: ${this.obtenerReceptor()}
-                        Monto: ${this.obtenerMonto()}
-                        Tipo de moneda: Bs
-                        Lugar de pago: ${this.obtenerlugarDeEmision()}
-                        Fecha de pago: ${this.obtenerFechaDeEmision().toString()}`;
+                      Empleado: ${this.obtenerReceptor()}
+                      Monto: ${this.obtenerMonto()}
+                      Tipo de moneda: Bs
+                      Lugar de pago: ${this.obtenerlugarDeEmision()}
+                      Fecha de pago: ${this.obtenerFechaDeEmision().toString()}`;
         return cheque;            
     }
 
