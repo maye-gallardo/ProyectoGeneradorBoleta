@@ -1,5 +1,7 @@
 class MetodoDePagoConDeposito{
-    constructor(nombreDelBanco, numeroCuenta, montoDepositado){
+    constructor(receptor, fechaDeEmision, nombreDelBanco, numeroCuenta, montoDepositado){
+        this.receptor=receptor;
+        this.fechaDeEmision=fechaDeEmision;
         this.nombreDelBanco=nombreDelBanco;
         this.numeroCuenta=numeroCuenta;
         this.montoDepositado=montoDepositado;
@@ -7,10 +9,22 @@ class MetodoDePagoConDeposito{
 
     obtenerPago(){
         let deposito = `FACTURA DE DEPOSITO
+                        Empleado: ${this.obtenerReceptor()}
                         Banco: ${this.obtenerNombreDelBanco()}
+                        Monto: ${this.obtenerMontoADepositar()}
+                        Tipo de moneda: Bs
                         Cuenta: ${this.obtenerNumeroDeCuenta()}
-                        Monto: ${this.obtenerMontoADepositar()}`;
+                        Fecha de pago: ${this.obtenerFechaDeEmision().toString()}`;
         return deposito;            
+    }
+
+    obtenerReceptor(){
+        return this.receptor.obtenerNombre();
+    }
+
+    obtenerFechaDeEmision(){
+        let fecha = new Date();
+        return fecha.getDate();
     }
 
     obtenerNombreDelBanco(){
@@ -22,6 +36,7 @@ class MetodoDePagoConDeposito{
     }
 
     obtenerMontoADepositar(){
-        return this.montoDepositado.calcularSalario();
+        return this.receptor.obtenerSalario();
     }
 }
+module.exports=MetodoDePagoConDeposito;

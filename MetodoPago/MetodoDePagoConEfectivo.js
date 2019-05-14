@@ -1,7 +1,6 @@
 class MetodoDePagoConEfectivo{
-    constructor(nombreReceptor, CiReceptor,conceptoDelPago, lugarDeEmision, fechaDeEmision, montoTotal){
-        this.nombreReceptor=nombreReceptor;
-        this.CiReceptor=CiReceptor;
+    constructor(receptor,conceptoDelPago, lugarDeEmision, fechaDeEmision, montoTotal){
+        this.receptor=receptor;
         this.conceptoDelPago=conceptoDelPago;
         this.fechaDeEmision=fechaDeEmision;
         this.lugarDeEmision=lugarDeEmision;
@@ -9,31 +8,28 @@ class MetodoDePagoConEfectivo{
     }
 
     obtenerPago(){
-        let cheque = `Factura de pago en efectivo
+        let cheque = `FACTURA DE PAGO POR EFECTIVO
                         Empleado: ${this.obtenerNombreDelReceptor()}
-                        Ci: ${this.obtenerCiReceptor()}
                         Concepto: ${this.obtenerconceptoDelPago()}
-                        Tipo de moneda: Bs
                         Monto: ${this.obtenerMontoTotal()}
+                        Tipo de moneda: Bs
                         Lugar de pago: ${this.obtenerlugarDeEmision()}
                         Fecha de pago: ${this.obtenerFechaDeEmision().toString()}`;
         return cheque;            
     }
 
     obtenerNombreDelReceptor(){
-        return this.nombreReceptor.obtenerNombre();
+        return this.receptor.obtenerNombre();
     }
 
     obtenerconceptoDelPago(){
-        return this.CiReceptor.obtenerCi();
-    }
-
-    obtenerCiReceptor(){
         return this.conceptoDelPago;
     }
 
     obtenerFechaDeEmision(){
-        return this.fechaPagoConCheque.getDay();
+        let fechaPagoEfectivo = new Date();
+        return fechaPagoEfectivo.getDate();
+
     }
 
     obtenerlugarDeEmision(){
@@ -41,7 +37,7 @@ class MetodoDePagoConEfectivo{
     }
 
     obtenerMontoTotal(){
-        return this.montoTotal.calcularSalario();
+        return this.receptor.obtenerSalario();
     }
-
 }
+module.exports=MetodoDePagoConEfectivo;
