@@ -50,4 +50,24 @@ describe('Metodo de pago', function(){
         let boletaResultante=chequeDePago.obtenerPago();
         expect(boletaEsperada).equal(boletaResultante);
     });
+
+    it('recibe un empleado por comision y genera su cheque de pago', function () {
+        let tarjetaVenta = new TarjetaVenta(500, "2018-03-02");
+        let calculadora = new CalculadoraPorComision(200, 0.05, [tarjetaVenta]);
+
+        let fechaIncioLaboral = new Date(2019, 3, 2);
+        let calculadoraDeFecha = new CalculadoraDeFechaDePagoPorComision(fechaIncioLaboral);
+        let empleado = new Empleado("Erick", 1, calculadora, calculadoraDeFecha,"Cheque");
+        let chequeDePago = new MetodoDePagoConCheque(empleado, "2019-05-12",1800);
+        let fechaDePago = new Date(2019,3,13);
+        fechaDePago.toString();
+        let boletaEsperada=`CHEQUE DE PAGO
+                      Empleado: Erick
+                      Monto: 225
+                      Tipo de moneda: Bs
+                      Lugar de pago: cochabamba
+                      Fecha de pago: ${fechaDePago.getDate()}`;
+        let boletaResultante=chequeDePago.obtenerPago();
+        expect(boletaEsperada).equal(boletaResultante);
+    });
 });
