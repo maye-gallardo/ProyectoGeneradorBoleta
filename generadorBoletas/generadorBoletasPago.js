@@ -1,15 +1,14 @@
-import BoletaDePago from '../boleta/boletaDePago';
 class GeneradorBoletasDePago{
     constructor(empleados){
         this.empleados=empleados;
         this.boletasGeneradas=[];
     }
    
-    generarBoletasDePagoParaTodosLosEmpleados(){
+    generarBoletasDePagoParaTodosLosEmpleados(fechaActual){
         for (let empleado of this.empleados) {
-            let boletaDePago = new BoletaDePago();
-            boletaDePago = boletaDePago.generarBoleta(empleado);
-            this.boletasGeneradas.push(boletaDePago);
+            if(empleado.correspondePagar(fechaActual)){
+                this.boletasGeneradas.push(empleado.obtenerPago());
+            }
         }
         
     }

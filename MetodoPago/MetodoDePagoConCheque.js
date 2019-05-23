@@ -1,24 +1,17 @@
 
-class MetodoDePagoConCheque{
-    constructor(receptor, fechaDeEmision, monto){
-        this.receptor=receptor;
-        this.fechaDeEmision=fechaDeEmision;
+class metodoDePagoConCheque{
+    constructor(){
         this.lugarDeEmision="cochabamba";
-        this.monto=monto;
     }
 
-    obtenerPago(){
+    obtenerPago(nombre,salario){
         let cheque = `CHEQUE DE PAGO
-                      Empleado: ${this.obtenerReceptor()}
-                      Monto: ${this.obtenerMonto()}
+                      Empleado: ${nombre}
+                      Monto: ${salario}
                       Tipo de moneda: Bs
                       Lugar de pago: ${this.obtenerlugarDeEmision()}
                       Fecha de pago: ${this.obtenerFechaDeEmision().toString()}`;
         return cheque;            
-    }
-
-    obtenerReceptor(){
-        return this.receptor.obtenerNombre();
     }
 
     obtenerFechaDeEmision(){
@@ -30,10 +23,6 @@ class MetodoDePagoConCheque{
         return this.lugarDeEmision;
     }
 
-    obtenerMonto(){
-        return this.receptor.obtenerSalario();
-    }
-
 }
-module.exports=MetodoDePagoConCheque;
+module.exports=metodoDePagoConCheque;
 

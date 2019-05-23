@@ -1,4 +1,4 @@
-class MetodoDePago{
-    obtenerPago(){}
+class metodoDePago{
+    obtenerPago(nombre,salario){}
 }
-module.exports=MetodoDePago;
+module.exports=metodoDePago;

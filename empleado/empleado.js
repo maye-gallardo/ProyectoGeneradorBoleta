@@ -1,13 +1,21 @@
 class Empleado{
-    constructor(nombre,ci,calculadora,calculadoraFechaPago,metodoPago){
+    constructor(nombre,ci,calculadoraDeSalario,calculadoraFechaPago,metodoPago){
         this.nombre=nombre;
         this.ci=ci;
-        this.calculadora=calculadora;
+        this.calculadoraDeSalario=calculadoraDeSalario;
         this.calculadoraFechaPago=calculadoraFechaPago;
         this.metodoPago=metodoPago;
     }
     obtenerSalario(){
-        return this.calculadora.calcularSalario();
+        return this.calculadoraDeSalario.calcularSalario();
+    }
+    correspondePagar(fecha){
+        let esCorrespondidoElPago=false;
+        let fechaDePago = this.obtenerFechaPago();
+        if((fechaDePago.getDay()==fecha.getDay())&&(fechaDePago.getMonth()==fecha.getMonth())&&(fechaDePago.getYear()==fecha.getYear())){
+            esCorrespondidoElPago=true;
+        }
+        return esCorrespondidoElPago;
     }
     obtenerFechaPago(){
         return this.calculadoraFechaPago.calcularFechaDePago();
@@ -18,8 +26,8 @@ class Empleado{
     obtenerCi(){
         return this.ci;
     }
-    obtenerMetodoPago(){
-        return this.metodoPago;
+    obtenerPago(){
+        return this.metodoPago.obtenerPago(this.nombre,this.obtenerSalario());
     }
 }
 

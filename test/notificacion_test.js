@@ -1,5 +1,8 @@
 var expect = require('chai').expect
-import Email from '../email';
+import notificador from '../notificador/notificador'
+import notificadorDeEmail from '../notificador/notificadorDeEmail';
+import notificadorDeFacebook from '../notificador/notificadorDeFacebook';
+import notificadorDeWhatsapp from '../notificador/notificadorDeWhatsapp';
 
 describe('notificaciones', function () {
 
@@ -11,9 +14,9 @@ describe('notificaciones', function () {
             subject: 'Boleta de Pago 1',
             text: 'La descripccion de la boleta de pago sera enviando en este campo'
           };
-        let correoGmail = new Email(opcionesDeEnvio);
-        correoGmail.iniciarConexion();
-        let respuesta= await correoGmail.enviarNotificacion()
+        let miNotificador = new notificador();
+        miNotificador = new notificadorDeEmail(opcionesDeEnvio);
+        let respuesta= await miNotificador.notificar();
         expect(respuesta).equal("mensaje enviado");
     });
 
@@ -25,8 +28,10 @@ describe('notificaciones', function () {
             subject: 'Boleta de Pago 3',
             text: 'La descripccion de la boleta de pago sera enviando en este campo'
           };
-        let correoFacebook = new Email(opcionesDeEnvio);
-        expect(correoFacebook.enviarNotificacionFacebook()).equal("mensaje enviado");
+        let miNotificador = new notificador();
+        miNotificador = new notificadorDeFacebook(opcionesDeEnvio);
+        let respuesta = miNotificador.notificar();
+        expect(respuesta).equal("mensaje enviado");
     });
 
     it('Notificacion para WhatsApp',  function () {
@@ -36,8 +41,10 @@ describe('notificaciones', function () {
             subject: 'Boleta de Pago 4',
             text: 'La descripccion de la boleta de pago sera enviando en este campo'
           };
-        let whatsapp = new Email(opcionesDeEnvio);
-        expect(whatsapp.enviarNotificacionWhatsapp()).equal("mensaje enviado");
+          let miNotificador = new notificador();
+          miNotificador = new notificadorDeWhatsapp(opcionesDeEnvio);
+          let respuesta = miNotificador.notificar();
+          expect(respuesta).equal("mensaje enviado");
     });
 
 });

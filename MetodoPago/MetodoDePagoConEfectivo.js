@@ -1,25 +1,19 @@
-class MetodoDePagoConEfectivo{
-    constructor(receptor,conceptoDelPago, lugarDeEmision, fechaDeEmision, montoTotal){
-        this.receptor=receptor;
+class metodoDePagoConEfectivo{
+    constructor(conceptoDelPago, lugarDeEmision, fechaDeEmision){
         this.conceptoDelPago=conceptoDelPago;
         this.fechaDeEmision=fechaDeEmision;
         this.lugarDeEmision=lugarDeEmision;
-        this.montoTotal=montoTotal;
     }
 
-    obtenerPago(){
+    obtenerPago(nombre,salario){
         let cheque = `FACTURA DE PAGO POR EFECTIVO
-                        Empleado: ${this.obtenerNombreDelReceptor()}
+                        Empleado: ${nombre}
                         Concepto: ${this.obtenerconceptoDelPago()}
-                        Monto: ${this.obtenerMontoTotal()}
+                        Monto: ${salario}
                         Tipo de moneda: Bs
                         Lugar de pago: ${this.obtenerlugarDeEmision()}
                         Fecha de pago: ${this.obtenerFechaDeEmision().toString()}`;
         return cheque;            
-    }
-
-    obtenerNombreDelReceptor(){
-        return this.receptor.obtenerNombre();
     }
 
     obtenerconceptoDelPago(){
@@ -35,9 +29,5 @@ class MetodoDePagoConEfectivo{
     obtenerlugarDeEmision(){
         return this.lugarDeEmision;
     }
-
-    obtenerMontoTotal(){
-        return this.receptor.obtenerSalario();
-    }
 }
-module.exports=MetodoDePagoConEfectivo;
+module.exports=metodoDePagoConEfectivo;

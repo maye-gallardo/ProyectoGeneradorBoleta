@@ -1,6 +1,6 @@
 var nodemailer = require('nodemailer');
 
-class Email {
+class notificadorDeEmail {
 
   constructor(opcionesDeEnvio) {
     this.conexion;
@@ -11,13 +11,14 @@ class Email {
     this.conexion = nodemailer.createTransport({
       service: 'gmail',
       auth: {
-        user: 'juantopex123@gmail.com',
-        pass: 'chabone92'
+        user: 'mauricioqb6@gmail.com',
+        pass: 'maurilife-1'
       }
     });
   }
 
-  enviarNotificacion() {
+  notificar() {
+    this.iniciarConexion();
     let conexionTemp = this.conexion;
     let opcionesDeEnvioTemp = this.opcionesDeEnvio
 
@@ -34,17 +35,6 @@ class Email {
     );
     return promesa;
   }
-
-  enviarNotificacionFacebook(){
-    //Falta implementar para Facebook 
-    return "mensaje enviado";
-  }
-  
-  enviarNotificacionWhatsapp(){
-    //Falta implementar para  Whatsapp
-    return "mensaje enviado";
-  }
-
 }
-module.exports = Email;
+module.exports = notificadorDeEmail;
 
