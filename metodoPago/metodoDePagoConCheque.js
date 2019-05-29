@@ -11,7 +11,7 @@ class metodoDePagoConCheque{
                       Tipo de moneda: Bs
                       Lugar de pago: ${this.obtenerlugarDeEmision()}
                       Fecha de pago: ${this.obtenerFechaDeEmision().toString()}`;
-        return cheque;            
+        return cheque;
     }
 
     obtenerFechaDeEmision(){
