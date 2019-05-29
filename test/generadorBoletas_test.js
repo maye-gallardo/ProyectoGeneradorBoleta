@@ -1,11 +1,11 @@
 var expect = require('chai').expect;
 
-import Empleado from '../empleado/empleado.js';
-import CalculadoraPorFijo from '../calculadoras/calculadoraSalario/calculadoraPorFijo';
-import TarjetaAsistencia from '../tarjetas/tarjetaAsistencia';
-import CalculadoraDeFechaDePagoFijo from '../calculadoras/calculadoraFechaDePago/calculadoraDeFechaDePagoFijo';
+import Empleado from '../src/empleado.js';
+import CalculadoraPorFijo from '../src/calculadoras/calculadoraSalario/calculadoraPorFijo';
+import TarjetaAsistencia from '../src/tarjetas/tarjetaAsistencia';
+import CalculadoraDeFechaDePagoFijo from '../src/calculadoras/calculadoraFechaDePago/calculadoraDeFechaDePagoFijo';
 import GeneradorBoletasDePago from '../interactor/generadorBoletasPago';
-import MetodoDePagoConCheque from '../metodoPago/metodoDePagoConCheque'
+import MetodoDePagoConCheque from '../src/metodoPago/metodoDePagoConCheque'
 
 let empleados = [];
 let boletasEsperadas = [];

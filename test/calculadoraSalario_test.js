@@ -1,11 +1,11 @@
 var expect = require('chai').expect
 
-import CalculadoraPorFijo from '../calculadoras/calculadoraSalario/calculadoraPorFijo';
-import CalculadoraPorHora from '../calculadoras/calculadoraSalario/calculadoraPorHora';
-import CalculadoraPorComision from '../calculadoras/calculadoraSalario/calculadoraPorComision';
-import TarjetaHora from '../tarjetas/tarjetaHora';
-import TarjetaAsistencia from '../tarjetas/tarjetaAsistencia';
-import TarjetaVenta from '../tarjetas/tarjetaVenta';
+import CalculadoraPorFijo from '../src/calculadoras/calculadoraSalario/calculadoraPorFijo';
+import CalculadoraPorHora from '../src/calculadoras/calculadoraSalario/calculadoraPorHora';
+import CalculadoraPorComision from '../src/calculadoras/calculadoraSalario/calculadoraPorComision';
+import TarjetaHora from '../src/tarjetas/tarjetaHora';
+import TarjetaAsistencia from '../src/tarjetas/tarjetaAsistencia';
+import TarjetaVenta from '../src/tarjetas/tarjetaVenta';
 let DiasTrabajados=[];
 describe('Calculadora de salario', function () {
 

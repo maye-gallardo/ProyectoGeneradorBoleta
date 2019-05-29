@@ -1,7 +1,7 @@
 var expect = require('chai').expect
-import CalculadoraDeFechaDePagoPorHora from '../calculadoras/calculadoraFechaDePago/calculadoraDeFechaDePagoPorHora';
-import CalculadoraDeFechaDePagoFijo from '../calculadoras/calculadoraFechaDePago/calculadoraDeFechaDePagoFijo';
-import CalculadoraDeFechaDePagoPorComision from '../calculadoras/calculadoraFechaDePago/CalculadoraDeFechaDePagoPorComision';
+import CalculadoraDeFechaDePagoPorHora from '../src/calculadoras/calculadoraFechaDePago/calculadoraDeFechaDePagoPorHora';
+import CalculadoraDeFechaDePagoFijo from '../src/calculadoras/calculadoraFechaDePago/calculadoraDeFechaDePagoFijo';
+import CalculadoraDeFechaDePagoPorComision from '../src/calculadoras/calculadoraFechaDePago/CalculadoraDeFechaDePagoPorComision';
 
 describe('CalculadoraFechaDePago', function () {
 it('recibe una fecha y devuelve la fecha del viernes para pagar a un empleado por hora', function () {

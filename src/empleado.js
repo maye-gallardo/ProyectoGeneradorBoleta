@@ -29,6 +29,9 @@ class Empleado{
     obtenerPago(){
         return this.metodoPago.obtenerPago(this.nombre,this.obtenerSalario());
     }
+    establecerNombre(nombre){
+        this.nombre=nombre;
+    }
 }
 
 

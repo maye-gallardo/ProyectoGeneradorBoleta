@@ -1,8 +1,8 @@
 var expect = require('chai').expect
-import notificador from '../notificador/notificador'
-import notificadorDeEmail from '../notificador/notificadorDeEmail';
-import notificadorDeFacebook from '../notificador/notificadorDeFacebook';
-import notificadorDeWhatsapp from '../notificador/notificadorDeWhatsapp';
+import notificador from '../src/notificador/notificador'
+import notificadorDeEmail from '../src/notificador/notificadorDeEmail';
+import notificadorDeFacebook from '../src/notificador/notificadorDeFacebook';
+import notificadorDeWhatsapp from '../src/notificador/notificadorDeWhatsapp';
 
 describe('notificaciones', function () {
 

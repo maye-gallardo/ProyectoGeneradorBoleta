@@ -1,16 +1,21 @@
 class GeneradorBoletasDePago{
-    constructor(empleados){
+    constructor(empleados, repositorio){
+        this.repositorio=repositorio;
         this.empleados=empleados;
         this.boletasGeneradas=[];
     }
    
     generarBoletasDePagoParaTodosLosEmpleados(fechaActual){
-        for (let empleado of this.empleados) {
+        for (let empleado of this.obtenerEmpleados()) {
             if(empleado.correspondePagar(fechaActual)){
                 this.boletasGeneradas.push(empleado.obtenerPago());
             }
         }
         
+    }
+
+    obtenerRepositorio(){
+        repositorio.obtenerEmpleados();
     }
 }
 

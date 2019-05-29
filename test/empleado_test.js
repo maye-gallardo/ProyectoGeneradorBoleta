@@ -1,15 +1,15 @@
 var expect = require('chai').expect;
 
-import Empleado from '../empleado/empleado.js';
-import CalculadoraPorFijo from '../calculadoras/calculadoraSalario/calculadoraPorFijo';
-import CalculadoraPorHora from '../calculadoras/calculadoraSalario/calculadoraPorHora';
-import CalculadoraPorComision from '../calculadoras/calculadoraSalario/calculadoraPorComision';
-import TarjetaHora from '../tarjetas/tarjetaHora';
-import TarjetaVenta from '../tarjetas/tarjetaVenta';
-import TarjetaAsistencia from '../tarjetas/tarjetaAsistencia';
-import CalculadoraDeFechaDePagoPorHora from '../calculadoras/calculadoraFechaDePago/calculadoraDeFechaDePagoPorHora';
-import CalculadoraDeFechaDePagoFijo from '../calculadoras/calculadoraFechaDePago/calculadoraDeFechaDePagoFijo';
-import CalculadoraDeFechaDePagoPorComision from '../calculadoras/calculadoraFechaDePago/CalculadoraDeFechaDePagoPorComision';
+import Empleado from '../src/empleado.js';
+import CalculadoraPorFijo from '../src/calculadoras/calculadoraSalario/calculadoraPorFijo';
+import CalculadoraPorHora from '../src/calculadoras/calculadoraSalario/calculadoraPorHora';
+import CalculadoraPorComision from '../src/calculadoras/calculadoraSalario/calculadoraPorComision';
+import TarjetaHora from '../src/tarjetas/tarjetaHora';
+import TarjetaVenta from '../src/tarjetas/tarjetaVenta';
+import TarjetaAsistencia from '../src/tarjetas/tarjetaAsistencia';
+import CalculadoraDeFechaDePagoPorHora from '../src/calculadoras/calculadoraFechaDePago/calculadoraDeFechaDePagoPorHora';
+import CalculadoraDeFechaDePagoFijo from '../src/calculadoras/calculadoraFechaDePago/calculadoraDeFechaDePagoFijo';
+import CalculadoraDeFechaDePagoPorComision from '../src/calculadoras/calculadoraFechaDePago/CalculadoraDeFechaDePagoPorComision';
 
 describe('calcular el salario para empleados y su fecha de paga', function () {
     
