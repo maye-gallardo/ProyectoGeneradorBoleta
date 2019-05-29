@@ -13,7 +13,7 @@ describe('',function(){
         let calculadora = new CalculadoraPorFijo(1800,[tarjetaAsistencia]);;
         let fechaIncioLaboral = new Date(2019, 3, 22);
         let calculadoraDeFecha = new CalculadoraDeFechaDePagoFijo(fechaIncioLaboral);
-        empleado = new Empleado("Erick", 1, calculadora,calculadoraDeFecha,"Deposito");
+        empleado = new Empleado("Erick", 1, calculadora,calculadoraDeFecha,"Deposito",null,false);
         repo = new repositorio();
         await repo.conectarse();
     });

@@ -6,7 +6,7 @@ class GeneradorBoletasDePago{
     }
    
     generarBoletasDePagoParaTodosLosEmpleados(fechaActual){
-        for (let empleado of this.obtenerEmpleados()) {
+        for (let empleado of this.empleados) {
             if(empleado.correspondePagar(fechaActual)){
                 this.boletasGeneradas.push(empleado.obtenerPago());
             }
