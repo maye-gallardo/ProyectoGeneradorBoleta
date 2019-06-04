@@ -1,5 +1,5 @@
 class sindicato{
-    pagarPrestamo(){
+    calcularMontoDeServicio(){
 
     }
 }

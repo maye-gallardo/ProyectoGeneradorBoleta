@@ -38,7 +38,7 @@ describe('Generador de boletas de pago',function(){
         fechaDePago1.toString();
         let boletaEsperada=`CHEQUE DE PAGO
                       Empleado: Erick
-                      Monto: 391
+                      Monto: 450
                       Tipo de moneda: Bs
                       Lugar de pago: cochabamba
                       Fecha de pago: ${new Date().getDate()}`;

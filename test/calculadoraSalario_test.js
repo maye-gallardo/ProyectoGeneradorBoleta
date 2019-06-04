@@ -12,13 +12,13 @@ describe('Calculadora de salario', function () {
     it('calcular salario para un empleado fijo que asistio un dia laboral del mes', function () {
         let tarjetaAsistencia = new TarjetaAsistencia("2019-03-22");
         let calculadora = new CalculadoraPorFijo(1800,[tarjetaAsistencia]);
-        expect(calculadora.calcularSalario()).equal(78);
+        expect(calculadora.calcularSalario()).equal(90);
     });
 
     it('calcular salario para un empleado fijo que asistio 10 dias laborales del mes', function () {
         DiezDiasTrabajados();
         let calculadora = new CalculadoraPorFijo(1800,DiasTrabajados);
-        expect(calculadora.calcularSalario()).equal(782);
+        expect(calculadora.calcularSalario()).equal(900);
     });
     function DiezDiasTrabajados(){
         let tarjetaAsistencia1 = new TarjetaAsistencia("2019-03-2");
