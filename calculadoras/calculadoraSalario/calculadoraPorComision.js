@@ -15,5 +15,6 @@ class CalculadoraPorComision {
         }
         return cantidadDeMonto;
     }
+
 }
 module.exports = CalculadoraPorComision;

@@ -1,14 +1,21 @@
 class Empleado{
-    constructor(nombre,ci,calculadoraDeSalario,calculadoraFechaPago,metodoPago){
+    constructor(nombre,ci,calculadoraDeSalario,calculadoraFechaPago,metodoPago, sindicato){
         this.nombre=nombre;
         this.ci=ci;
         this.calculadoraDeSalario=calculadoraDeSalario;
         this.calculadoraFechaPago=calculadoraFechaPago;
         this.metodoPago=metodoPago;
+        this.sindicato=sindicato;
     }
     obtenerSalario(){
         return this.calculadoraDeSalario.calcularSalario();
     }
+
+    obtenerSindicato(){
+        
+    }
+
+
     correspondePagar(fecha){
         let esCorrespondidoElPago=false;
         let fechaDePago = this.obtenerFechaPago();
