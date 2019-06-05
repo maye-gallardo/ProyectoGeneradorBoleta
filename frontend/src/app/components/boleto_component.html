@@ -1,0 +1,28 @@
+<div class='body'>
+    <div class="button-section">
+        <a href="#!/"><button class="button">Volver</button></a>
+    </div><br>
+    <div class="date-section">
+                <label for="dia">Dia:<input type="number" name="dia" ng-model="fecha.dia" placeholder="(1-31)" class="field" ng-required='true'/></label>
+                <label for="mes">Mes:<input type="number" name="mes" ng-model="fecha.mes" placeholder="(1-12)" class="field" ng-required='true'/></label>
+                <label for="anho">Año:<input type="number" name="anho" ng-model="fecha.anho" placeholder="Ejm: 2019" class="field" ng-required='true'/></label>        
+                <button class="button2" ng-click="generarBoletas()">Generar boletas</button>
+        </div><br>
+    <div class='title-section'>
+        <h2 class='title'>Boletas</h2>
+    </div>
+
+    <div class='ticket-section' ng-repeat="boleta in listadeBoletas">
+        <div class='ticket'>
+            <div class="ticket-title">Boleta de pago</div><br>
+            <label>Nombre: {{boleta.empleado.nombre}} {{boleta.empleado.apellido}}</label><br>
+            <label>Monto: {{boleta.salario}}Bs</label><br>
+            <label>Tipo de empleado: {{boleta.empleado.tipo}}</label><br>
+            <div class='date'>{{fecha.dia}} / {{fecha.mes}} / {{fecha.anho}}</div>
+        </div>
+    </div>
+
+    <p ng-if='boletasNoDisponibles' class='error'>
+        NO HAY BOLETAS DISPONIBLE PARA ESTE DIA
+    </p>
+</div>

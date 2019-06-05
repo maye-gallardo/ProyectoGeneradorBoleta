@@ -10,10 +10,10 @@ import TarjetaAsistencia from '../tarjetas/tarjetaAsistencia';
 import CalculadoraDeFechaDePagoPorHora from '../calculadoras/calculadoraFechaDePago/calculadoraDeFechaDePagoPorHora';
 import CalculadoraDeFechaDePagoFijo from '../calculadoras/calculadoraFechaDePago/calculadoraDeFechaDePagoFijo';
 import CalculadoraDeFechaDePagoPorComision from '../calculadoras/calculadoraFechaDePago/CalculadoraDeFechaDePagoPorComision';
-
+import servicioPestamoDeDinero from '../sindicato/servicioPestamoDeDinero'
 describe('calcular el salario para empleados y su fecha de paga', function () {
     
-    it('obtener salario para un empleado fijo que gana 1800 y que asistio un dia laboral', function () {
+    /*it('obtener salario para un empleado fijo', function () {
         let tarjetaAsistencia = new TarjetaAsistencia("2019-03-22");
         let calculadora = new CalculadoraPorFijo(1800,[tarjetaAsistencia]);;
         let fechaIncioLaboral = new Date(2019, 3, 22);
@@ -44,7 +44,7 @@ describe('calcular el salario para empleados y su fecha de paga', function () {
         expect(empleado.correspondePagar(fechaDePaga)).equal(true);
     });
 
-    it('obtener el salario para un empleado por hora con 1 tarjeta de venta y 200 de salario por hora', function () {
+    it('obtener el salario para un empleado por hora con 1 tarjeta de venta', function () {
         let tarjetaHora = new TarjetaHora("2019-03-22", "16:00:00", "20:00:00");
         let calculadora = new CalculadoraPorHora(200, [tarjetaHora]);
         let fechaIncioLaboral = new Date(2019, 3, 22);
@@ -75,7 +75,7 @@ describe('calcular el salario para empleados y su fecha de paga', function () {
     });
     
     
-    it('obtener el salario para un empleado por hora con mas de 1 tarjeta de venta y 200 de salario por hora', function () {
+    it('obtener el salario para un empleado por hora con mas de 1 tarjeta de venta', function () {
         let tarjetaHoras = new TarjetaHora("2019-03-22", "16:00:00", "20:00:00");
         let tarjetaHoras1 = new TarjetaHora("2019-03-23", "16:00:00", "20:00:00");
         let tarjetaHoras2 = new TarjetaHora("2019-03-24", "16:00:00", "20:00:00");
@@ -89,7 +89,7 @@ describe('calcular el salario para empleados y su fecha de paga', function () {
         expect(empleado.obtenerSalario()).equal(2400);
     });
 
-    it('obtener salario para un empleado por comision con 1 tarjeta de venta y 5% de comision', function () {
+    it('obtener salario para un empleado por comision con 1 tarjeta de venta', function () {
         let tarjetaVentas = new TarjetaVenta(500, "2019-03-22");
         let calculadora = new CalculadoraPorComision(200, 0.05, [tarjetaVentas]);
         let fechaIncioLaboral = new Date(2019, 5, 3);
@@ -98,7 +98,7 @@ describe('calcular el salario para empleados y su fecha de paga', function () {
         expect(empleado.obtenerSalario()).equal(225);
     });
 
-    it('obtener salario para un empleado por comision con 3 tarjetas de venta y 7% de comision', function () {
+    it('obtener salario para un empleado por comision con 3 tarjetas de venta', function () {
         let tarjetaVenta1 = new TarjetaVenta(500, "2019-03-22");
         let tarjetaVenta2 = new TarjetaVenta(300, "2019-03-22");
         let tarjetaVenta3 = new TarjetaVenta(100, "2019-03-22");
@@ -132,5 +132,39 @@ describe('calcular el salario para empleados y su fecha de paga', function () {
         let empleado = new Empleado("Erick", 1, calculadora, calculadoraDeFecha,"Efectivo");
         let fechaDePaga = new Date(2019, 5, 14);
         expect(empleado.correspondePagar(fechaDePaga)).equal(true);
-    }); 
+    }); */
+
+    it('obtener el monto de prestamo de Dinero de un empleado', function () {
+        let tarjetaVenta1 = new TarjetaVenta(500, "2019-05-03");
+        let calculadora = new CalculadoraPorComision(1000, 0.10, [tarjetaVenta1]);
+        let fechaIncioLaboral = new Date(2019, 5, 3);
+        let calculadoraDeFecha = new CalculadoraDeFechaDePagoPorComision(fechaIncioLaboral);
+        let prestamo = new servicioPestamoDeDinero();
+        prestamo.agregarPrestamo(100);
+        let empleado = new Empleado("Erick", 1, calculadora, calculadoraDeFecha,"Efectivo",prestamo, false);
+        expect(empleado.obtenerServicioSindicato()).equal(100);
+    });
+
+    it('obtener el monto mensual que un empleado  deberia pagar por su Prestamo de Dinero', function () {
+        let tarjetaVenta1 = new TarjetaVenta(500, "2019-05-03");
+        let calculadora = new CalculadoraPorComision(1000, 0.10, [tarjetaVenta1]);
+        let fechaIncioLaboral = new Date(2019, 5, 3);
+        let calculadoraDeFecha = new CalculadoraDeFechaDePagoPorComision(fechaIncioLaboral);
+        let prestamo = new servicioPestamoDeDinero();
+        prestamo.agregarPrestamo(600);
+        prestamo.obtenerPagoMensual(3);
+        let empleado = new Empleado("Erick", 1, calculadora, calculadoraDeFecha,"Efectivo",prestamo, false);
+        expect(empleado.obtenerDescuentoDePrestamo()).equal(200);
+    });
+
+    it('obtener salario para un empleado fijo que pertenece a un sindicato e hizo un prestamo de dinero', function () {
+        let tarjetaAsistencia = new TarjetaAsistencia("2019-03-22");
+        let calculadora = new CalculadoraPorFijo(1800,[tarjetaAsistencia]);;
+        let fechaIncioLaboral = new Date(2019, 3, 22);
+        let calculadoraDeFecha = new CalculadoraDeFechaDePagoFijo(fechaIncioLaboral);
+        let prestamo = new servicioPestamoDeDinero();
+        prestamo.agregarPrestamo(10);
+        let empleado = new Empleado("Erick", 1, calculadora,calculadoraDeFecha,"Deposito",prestamo, true);
+        expect(empleado.obtenerSalarioSiPerteneceASindicato()).equal(80);
+    });
 });

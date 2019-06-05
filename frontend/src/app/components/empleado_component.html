@@ -1,0 +1,50 @@
+<div class='body'>
+    <div class="button-section">
+        <a href="#!/"><button class="button left">Volver</button></a>
+    </div>
+    <div class='title-section'>
+        <h2 class='title'>Registrar empleado</h2>
+    </div><br>
+    <div class="form-section" ng-controller='controladorEmpleado'>
+        <form name="myForm">
+            <label for="nombre">Nombre:<input type="text" name="nombre" placeholder="Ejm: Carlos" class="field" ng-model="empleado.nombre" ng-required='true' ng-minlength="2" ng-maxlength="20"/></label>
+            <p class="error" ng-show='myForm.nombre.$invalid && myForm.nombre.$touched'>Se requiere nombre (2-20 caracteres)</p><br>
+            <label for="apellido">Apellido:<input type="text" name="apellido" placeholder="Ejm: Bodoque" class="field" ng-model="empleado.apellido" ng-required='true' ng-minlength="2" ng-maxlength="20"/></label>
+            <p class="error" ng-show="myForm.apellido.$invalid && myForm.apellido.$touched">Se requiere apellido (2-20 caracteres)</p><br>
+            <label for="celular">Celular:<input type="text" name="celular" placeholder="Ejm: 70755555" class="field" ng-model="empleado.celularPrincipal" ng-required='true' ng-minlength="8" ng-maxlength="8"/></label>
+            <p class="error" ng-show="myForm.celular.$invalid && myForm.celular.$touched">Se requiere celular (8 numeros)</p><br>
+            <label for="correo">Correo:<input type="email" name="correo" placeholder="Ejm: jbodoque@31minutos.cl" class="field" ng-model="empleado.correoPrincipal" ng-required='true'/></label>
+            <p class="error" ng-show="myForm.correo.$invalid && myForm.correo.$touched">Se requiere correo (Ejm: nombre@algo.com)</p><br>
+
+            <label for="tipo">Tipo:<select name="tipo" class="field" ng-model="empleado.tipo" ng-required='true'>
+                <option>Fijo</option>
+                <option>Por hora</option>
+                <option>Por comisión</option>
+        </select></label>
+            <p class="error" ng-show="myForm.tipo.$invalid && myForm.tipo.$touched">Elija tipo</p><br>
+
+            <label for="monto" ng-if="empleado.tipo == 'Fijo' || empleado.tipo == 'Por comisión'">Sueldo:<input type="number" name="monto" ng-model="empleado.monto" placeholder="Ejm: 2000" class="field" ng-required='true'/></label>
+            <p class="error" ng-show="myForm.monto.$invalid && myForm.monto.$touched">Se requiere sueldo</p>
+            <label for="dia" ng-if="empleado.tipo == 'Fijo'">Dia:<input type="number" name="dia" ng-model="empleado.dia" placeholder="Ejm: 5" class="field" ng-required='true'/></label>
+            <p class="error" ng-show="myForm.dia.$invalid && myForm.dia.$touched">Se requiere dia (1-31)</p>
+            <label for="mes" ng-if="empleado.tipo == 'Fijo'">Mes:<input type="number" name="mes" ng-model="empleado.mes" placeholder="Ejm: 6" class="field" ng-required='true'/></label>
+            <p class="error" ng-show="myForm.mes.$invalid && myForm.mes.$touched">Se requiere mes (1-12)</p>
+            <label for="anho" ng-if="empleado.tipo == 'Fijo'">Año:<input type="number" name="anho" ng-model="empleado.anho" placeholder="Ejm: 2019" class="field" ng-required='true'/></label>
+            <p class="error" ng-show="myForm.anho.$invalid && myForm.anho.$touched">Se requiere año</p>
+
+            <label for="tarifa" ng-if="empleado.tipo == 'Por hora'">Tarifa:<input type="number" name="tarifa" ng-model="empleado.tarifa" placeholder="Ejm: 10" class="field" ng-required='true'/></label>
+            <p class="error" ng-show="myForm.tarifa.$invalid && myForm.tarifa.$touched">Se requiere tarifa</p>
+            <label for="horasManuales" ng-if="empleado.tipo == 'Por hora'">Horas manuales:<input type="number" name="horasManuales" ng-model="empleado.horasManuales" placeholder="Ejm: 4" class="field" ng-required='true'/></label>
+            <p class="error" ng-show="myForm.horasManuales.$invalid && myForm.horasManuales.$touched">Se requiere horas manuales</p>
+            <label for="horasATrabajar" ng-if="empleado.tipo == 'Por hora'">Horas a trabajar:<input type="number" name="horasATrabajar" ng-model="empleado.horasATrabajar" placeholder="Ejm: 5" class="field" ng-required='true'/></label>
+            <p class="error" ng-show="myForm.horasATrabajar.$invalid && myForm.horasATrabajar.$touched">Se requiere horas a trabajar</p>
+
+            <label for="comision" ng-if="empleado.tipo == 'Por comisión'">Comision:<input type="number" name="comision" ng-model="empleado.comision" placeholder="Ejm: 10" class="field" ng-required='true'/></label>
+            <p class="error" ng-show="myForm.comision.$invalid && myForm.comision.$touched">Se requiere precio por comisión</p>
+            <label for="ventasTotales" ng-if="empleado.tipo == 'Por comisión'">Ventas totales:<input type="number" name="ventasTotales" ng-model="empleado.ventasTotales" placeholder="Ejm: 6" class="field" ng-required='true'/></label>
+            <p class="error" ng-show="myForm.ventasTotales.$invalid && myForm.ventasTotales.$touched">Se requiere numero de ventas totales</p>
+            <br>
+            <button class='save-button' ng-click="guardarEmpleado()" ng-disabled='myForm.$invalid'>Registrar</button>
+        </form>
+    </div>
+</div>

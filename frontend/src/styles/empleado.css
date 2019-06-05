@@ -1,0 +1,57 @@
+.form-section {
+    width: 70%;
+    height: auto;
+    border: 1px solid #3498DB;
+    border-radius: 10px;
+    align-self: center;
+    padding: 2%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+}
+
+.field {
+    margin-left: 1%;
+    padding-left: 5px;
+    border: 1px solid #eeeeee;
+    border-radius: 5px;
+    height: 30px;
+}
+
+label {
+    display: flex;
+    align-items: center;
+}
+
+input {
+    width: 100%;
+}
+
+.save-button {
+    align-self: center;
+    background-color: #3498DB;
+    border: 0px;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 7px;
+    height: 45px;
+    outline: none;
+}
+
+.save-button:hover {
+    font-size: 21px;
+}
+
+.error {
+    color: rgb(209, 57, 57);
+    font-size: 15px;
+}

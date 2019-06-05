@@ -1,0 +1,25 @@
+<div class='body'>
+    <div class="button-section center">
+        <a href = "#!crear-empleado"><button class="button">Registrar empleado</button></a>
+        <a href = "#!generar-boletas"><button class="button">Generar boletas</button></a>
+    </div>
+    <div class='title-section'>
+        <h2 class='title'>Lista de empleados</h2>
+    </div>
+    <div class='table-section'>
+        <table class='table'>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Correo</th>
+                <th>Celular</th>
+            </tr>
+            <tr ng-repeat="empleado in listaEmpleados">
+                <td>{{empleado.nombre}}</td>
+                <td>{{empleado.apellido}}</td>
+                <td>{{empleado.correoPrincipal}}</td>
+                <td>{{empleado.celularPrincipal}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

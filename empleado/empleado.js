@@ -1,20 +1,16 @@
 class Empleado{
-    constructor(nombre,ci,calculadoraDeSalario,calculadoraFechaPago,metodoPago, sindicato){
+    constructor(nombre,ci,calculadoraDeSalario,calculadoraFechaPago,metodoPago, servicio, perteneceASindicato =false){
         this.nombre=nombre;
         this.ci=ci;
         this.calculadoraDeSalario=calculadoraDeSalario;
         this.calculadoraFechaPago=calculadoraFechaPago;
         this.metodoPago=metodoPago;
-        this.sindicato=sindicato;
+        this.servicio=servicio;
+        this.perteneceASindicato=perteneceASindicato;
     }
     obtenerSalario(){
         return this.calculadoraDeSalario.calcularSalario();
     }
-
-    obtenerSindicato(){
-        
-    }
-
 
     correspondePagar(fecha){
         let esCorrespondidoElPago=false;
@@ -30,12 +26,28 @@ class Empleado{
     obtenerNombre(){
         return this.nombre;
     }
+
+    obtenerSalarioSiPerteneceASindicato(){
+        if(this.perteneceASindicato==true)
+            return this.obtenerSalario()-this.obtenerServicioSindicato();
+    }
+
     obtenerCi(){
         return this.ci;
     }
+
     obtenerPago(){
         return this.metodoPago.obtenerPago(this.nombre,this.obtenerSalario());
     }
+
+    obtenerServicioSindicato(){
+        return this.servicio.calcularMontoDeServicio();
+    }
+
+    obtenerDescuentoDePrestamo(){
+        return this.servicio.calcularPagoMensual();
+    }
+
 }
 
 

@@ -7,6 +7,7 @@ class CalculadoraPorFijo {
     calcularSalario(){
         return Math.trunc((this.calcularDiasTrabajados()*this.salario)/this.calcularDiasLaboralesDelMesActual());
     }
+
     calcularDiasTrabajados(){
         return this.listaTarjetasAsistencia.length;
     }
