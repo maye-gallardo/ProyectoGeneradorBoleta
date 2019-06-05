@@ -4,8 +4,7 @@ class servicioDePulperia{
     }
 
     calcularMontoDeServicio() {
-        let totalMontoPorServicio = this.calcularMontoDeLaLista();
-        return totalMontoPorServicio;
+        return this.calcularMontoDeLaLista();;
     }
 
     agregarPedido(pedido, monto) {
