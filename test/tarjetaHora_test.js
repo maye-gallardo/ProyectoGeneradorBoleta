@@ -1,5 +1,5 @@
 var expect = require('chai').expect
-import TarjetaHora from '../tarjetas/tarjetaHora';
+import TarjetaHora from '../src/tarjetas/tarjetaHora';
 
 describe('',function(){
     it('calcular cantidad de horas de trabajo de una Tarjeta de hora', function () {

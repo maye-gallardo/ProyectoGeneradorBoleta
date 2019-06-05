@@ -1,17 +1,7 @@
 var expect = require('chai').expect;
-import Empleado from '../empleado/empleado.js';
-import CalculadoraPorFijo from '../calculadoras/calculadoraSalario/calculadoraPorFijo';
-import CalculadoraPorHora from '../calculadoras/calculadoraSalario/calculadoraPorHora';
-import CalculadoraPorComision from '../calculadoras/calculadoraSalario/calculadoraPorComision';
-import TarjetaHora from '../tarjetas/tarjetaHora';
-import TarjetaVenta from '../tarjetas/tarjetaVenta';
-import TarjetaAsistencia from '../tarjetas/tarjetaAsistencia';
-import CalculadoraDeFechaDePagoPorHora from '../calculadoras/calculadoraFechaDePago/calculadoraDeFechaDePagoPorHora';
-import CalculadoraDeFechaDePagoFijo from '../calculadoras/calculadoraFechaDePago/calculadoraDeFechaDePagoFijo';
-import CalculadoraDeFechaDePagoPorComision from '../calculadoras/calculadoraFechaDePago/CalculadoraDeFechaDePagoPorComision';
-import MetodoDePagoConCheque from '../metodoPago/metodoDePagoConCheque.js';
-import MetodoDePagoConDeposito from '../metodoPago/metodoDePagoConDeposito.js';
-import MetodoDePagoConEfectivo from '../metodoPago/metodoDePagoConEfectivo.js';
+import MetodoDePagoConCheque from '../src/metodoPago/metodoDePagoConCheque.js';
+import MetodoDePagoConDeposito from '../src/metodoPago/metodoDePagoConDeposito.js';
+import MetodoDePagoConEfectivo from '../src/metodoPago/metodoDePagoConEfectivo.js';
 describe('Metodo de pago', function(){
     it('recibir un empleado fijo y generar su cheque de pago', function(){
         let chequeDePago = new MetodoDePagoConCheque();

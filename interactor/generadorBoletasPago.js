@@ -1,5 +1,6 @@
 class GeneradorBoletasDePago{
-    constructor(empleados){
+    constructor(empleados, repositorio){
+        this.repositorio=repositorio;
         this.empleados=empleados;
         this.boletasGeneradas=[];
     }
@@ -11,6 +12,10 @@ class GeneradorBoletasDePago{
             }
         }
         
+    }
+
+    obtenerRepositorio(){
+        repositorio.obtenerEmpleados();
     }
 }
 

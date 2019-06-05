@@ -1,7 +1,7 @@
 var expect = require('chai').expect
-import Sindicato from '../sindicato/sindicato'
-import servicioPestamoDeDinero from '../sindicato/servicioPestamoDeDinero'
-import servicioDePulperia from '../sindicato/servicioDePulperia'
+import Sindicato from '../src/sindicato/sindicato'
+import servicioPestamoDeDinero from '../src/sindicato/servicioPestamoDeDinero'
+import servicioDePulperia from '../src/sindicato/servicioDePulperia'
 
 describe ('sindicato' , function (){
     it('calcular pago del sindicato', function () {
