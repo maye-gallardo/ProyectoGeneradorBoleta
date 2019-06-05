@@ -5,12 +5,12 @@ class metodoDePagoConCheque{
     }
 
     obtenerPago(nombre,salario){
-        let cheque = `CHEQUE DE PAGO
-                      Empleado: ${nombre}
-                      Monto: ${salario}
-                      Tipo de moneda: Bs
-                      Lugar de pago: ${this.obtenerlugarDeEmision()}
-                      Fecha de pago: ${this.obtenerFechaDeEmision().toString()}`;
+        let cheque = {tipo: 'CHEQUE DE PAGO',
+                      Empleado: nombre,
+                      Monto: salario,
+                      Tipo_de_moneda: 'Bs',
+                      Lugar_de_pago: this.obtenerlugarDeEmision(),
+                      Fecha_de_pago: this.obtenerFechaDeEmision()};
         return cheque;
     }
 

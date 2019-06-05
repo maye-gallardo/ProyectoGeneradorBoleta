@@ -7,29 +7,29 @@ describe('Metodo de pago', function(){
         let chequeDePago = new MetodoDePagoConCheque();
         let fechaDePago = new Date();
         fechaDePago.toString();
-        let boletaEsperada=`CHEQUE DE PAGO
-                      Empleado: Erick
-                      Monto: 78
-                      Tipo de moneda: Bs
-                      Lugar de pago: cochabamba
-                      Fecha de pago: ${fechaDePago.getDate()}`;
+        let boletaEsperada={tipo: 'CHEQUE DE PAGO',
+                      Empleado: 'Erick',
+                      Monto: 78,
+                      Tipo_de_moneda: 'Bs',
+                      Lugar_de_pago: 'cochabamba',
+                      Fecha_de_pago: fechaDePago.getDate()};
         let boletaResultante=chequeDePago.obtenerPago('Erick', 78);
-        expect(boletaResultante).equal(boletaEsperada);
+        expect(boletaResultante).eql(boletaEsperada);
     });
 
     it('recibir un empleado fijo y generar su deposito de pago', function(){
         let depositoDePago = new MetodoDePagoConDeposito("2019-05-12", "mercantil", 4342);
         let fechaDePago = new Date();
         fechaDePago.toString();
-        let boletaEsperada=`FACTURA DE DEPOSITO
-                        Empleado: Erick
-                        Banco: mercantil
-                        Monto: 78
-                        Tipo de moneda: Bs
-                        Cuenta: 4342
-                        Fecha de pago: ${fechaDePago.getDate()}`;
+        let boletaEsperada={tipo: 'FACTURA DE DEPOSITO',
+                        Empleado: 'Erick',
+                        Banco: 'mercantil',
+                        Monto: 78,
+                        Tipo_de_moneda: 'Bs',
+                        Cuenta: 4342,
+                        Fecha_de_pago: fechaDePago.getDate()};
         let boletaResultante=depositoDePago.obtenerPago('Erick', 78);
-        expect(boletaResultante).equal(boletaEsperada);
+        expect(boletaResultante).eql(boletaEsperada);
     });
 
 
@@ -37,14 +37,14 @@ describe('Metodo de pago', function(){
         let factura = new MetodoDePagoConEfectivo("compras","cochabamba", "2019-05-12");
         let fechaDePago = new Date();
         fechaDePago.toString();
-        let boletaEsperada=`FACTURA DE PAGO POR EFECTIVO
-                        Empleado: Erick
-                        Concepto: compras
-                        Monto: 78
-                        Tipo de moneda: Bs
-                        Lugar de pago: cochabamba
-                        Fecha de pago: ${fechaDePago.getDate()}`;
+        let boletaEsperada={tipo: 'FACTURA DE PAGO POR EFECTIVO',
+                        Empleado: 'Erick',
+                        Concepto: 'compras',
+                        Monto: 78,
+                        Tipo_de_moneda: 'Bs',
+                        Lugar_de_pago: 'cochabamba',
+                        Fecha_de_pago: fechaDePago.getDate()};
         let boletaResultante=factura.obtenerPago('Erick', 78);
-        expect(boletaResultante).equal(boletaEsperada);
+        expect(boletaResultante).eql(boletaEsperada);
     });    
 });

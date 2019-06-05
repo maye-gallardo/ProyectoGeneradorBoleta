@@ -6,13 +6,13 @@ class metodoDePagoConEfectivo{
     }
 
     obtenerPago(nombre,salario){
-        let cheque = `FACTURA DE PAGO POR EFECTIVO
-                        Empleado: ${nombre}
-                        Concepto: ${this.obtenerconceptoDelPago()}
-                        Monto: ${salario}
-                        Tipo de moneda: Bs
-                        Lugar de pago: ${this.obtenerlugarDeEmision()}
-                        Fecha de pago: ${this.obtenerFechaDeEmision().toString()}`;
+        let cheque = {tipo: 'FACTURA DE PAGO POR EFECTIVO',
+                        Empleado: nombre,
+                        Concepto: this.obtenerconceptoDelPago(),
+                        Monto: salario,
+                        Tipo_de_moneda: 'Bs',
+                        Lugar_de_pago: this.obtenerlugarDeEmision(),
+                        Fecha_de_pago: this.obtenerFechaDeEmision()};
         return cheque;            
     }
 

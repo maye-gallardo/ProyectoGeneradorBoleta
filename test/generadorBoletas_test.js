@@ -18,7 +18,7 @@ describe('Generador de boletas de pago',function(){
         let index=0;
         for (let boletaResultante of generadorDeBoletas.boletasGeneradas) {
             let boletaEsperada = boletasEsperadas[index];
-            expect(boletaEsperada).equal(boletaResultante);
+            expect(boletaEsperada).eql(boletaResultante);
             index++;
         }
     });
@@ -33,15 +33,18 @@ describe('Generador de boletas de pago',function(){
         let fechaIncioLaboral1 = new Date(2019, 5, 3);
         let calculadoraDeFecha1 = new CalculadoraDeFechaDePagoFijo(fechaIncioLaboral1);
         let chequeDePago = new MetodoDePagoConCheque();
-        let empleado1 = new Empleado("Erick", 1, calculadoraDeSalario1, calculadoraDeFecha1,chequeDePago);
+        let empleado1 = new Empleado("Erick", 1);
+        empleado1.establecerCalculadorDeSalario(calculadoraDeSalario1);
+        empleado1.establecerCalculadoraFechaPago(calculadoraDeFecha1);
+        empleado1.establecerMetodoDePago(chequeDePago);
         let fechaDePago1 = new Date(2019,5,28);
         fechaDePago1.toString();
-        let boletaEsperada=`CHEQUE DE PAGO
-                      Empleado: Erick
-                      Monto: 450
-                      Tipo de moneda: Bs
-                      Lugar de pago: cochabamba
-                      Fecha de pago: ${new Date().getDate()}`;
+        let boletaEsperada={tipo: 'CHEQUE DE PAGO',
+                      Empleado: 'Erick',
+                      Monto: 450,
+                      Tipo_de_moneda: 'Bs',
+                      Lugar_de_pago: 'cochabamba',
+                      Fecha_de_pago: new Date().getDate()};
         
         empleados = [empleado1];
         boletasEsperadas = [boletaEsperada];

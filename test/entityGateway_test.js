@@ -31,5 +31,6 @@ describe('',function(){
     });
     it('eliminar un empleado', async function () {
         expect(await repo.eliminarEmpleado(1)).equal(true);
+        await repo.desconectarse();
     });
 });

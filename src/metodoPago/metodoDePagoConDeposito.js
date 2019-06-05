@@ -6,13 +6,13 @@ class metodoDePagoConDeposito{
     }
 
     obtenerPago(nombre,salario){
-        let deposito = `FACTURA DE DEPOSITO
-                        Empleado: ${nombre}
-                        Banco: ${this.obtenerNombreDelBanco()}
-                        Monto: ${salario}
-                        Tipo de moneda: Bs
-                        Cuenta: ${this.obtenerNumeroDeCuenta()}
-                        Fecha de pago: ${this.obtenerFechaDeEmision().toString()}`;
+        let deposito = {tipo: 'FACTURA DE DEPOSITO',
+                        Empleado: nombre,
+                        Banco: this.obtenerNombreDelBanco(),
+                        Monto: salario,
+                        Tipo_de_moneda: 'Bs',
+                        Cuenta: this.obtenerNumeroDeCuenta(),
+                        Fecha_de_pago: this.obtenerFechaDeEmision()};
         return deposito;            
     }
 
